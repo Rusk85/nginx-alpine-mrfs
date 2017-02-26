@@ -1,10 +1,13 @@
 FROM rusk85/alpine-base
 
 ARG BUILD_TIME
+ARG VERSION
 
-LABEL author="Sven Muncic <sven@muncic.de>"
-LABEL description="nginx proxy based on alpine linux mini-root-filesystem"
-LABEL build-time="${BUILD_TIME}"
+LABEL	author="Sven Muncic <sven@muncic.de>" \
+	description="NGINX Reverse Proxy configured with a static config to serve JIRA and Adminer on the same maschine \
+			both of which are in turn also running within docker containers." \
+	build-time="${BUILD_TIME}" \
+	image-version="${VERSION}"
 
 # build-time variables
 ARG NGINX_RUN=/run/nginx/
@@ -25,4 +28,4 @@ EXPOSE 8080
 
 USER root
 WORKDIR ${NGINX_INSTALL}
-CMD ["nginx"]
+CMD ["/usr/sbin/nginx"]
