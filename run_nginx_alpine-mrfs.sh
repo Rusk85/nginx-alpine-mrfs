@@ -1,4 +1,4 @@
-echo "Stopping and deleting previous container...\n"
+printf "Stopping and deleting previous container...\n"
 docker rm -f nginx
 
 printf "\nRunning new container off of latest build...\n"
