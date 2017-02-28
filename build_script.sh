@@ -10,7 +10,5 @@ if [ "$#" -eq 1 ]; then
 	IMAGE_VERSION=${IMAGE_VERSION}${IMAGE_REVD}
 fi
 VERSION=${MM_VERSION}${IMAGE_VERSION}
-# test version output
-#echo ${VERSION}
 
-docker build -t ${TAG} --build-arg BUILD_TIME="$(date)" --build-arg VERSION="${VERSION}" .
+docker build --no-cache -t ${TAG} --build-arg BUILD_TIME="$(date)" --build-arg VERSION="${VERSION}" .
