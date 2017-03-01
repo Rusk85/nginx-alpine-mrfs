@@ -28,5 +28,5 @@ EXPOSE 8080
 
 USER root
 WORKDIR ${NGINX_INSTALL}
-#CMD ["/bin/sh","-c","/usr/sbin/nginx"]
+VOLUME ["/etc/nginx/"]
 CMD nginx && tail -f /dev/null
