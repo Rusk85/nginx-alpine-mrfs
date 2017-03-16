@@ -4,11 +4,11 @@ TAG=rusk85/nginx-alpine-mrfs
 
 # block for creating proper version number
 IMAGE_VERSION=$(date +%g%j)
-MM_VERSION="0.3" # major.minor.
+MM_VERSION="0.4.1" # major.minor.
 BUILD_TIME="$(date +%d/%m/%y %H:%M:%S%z)"
 if [ "$#" -eq 1 ]; then
 	IMAGE_REVD=$1 # counting all builds of the day
-	IMAGE_VERSION=${IMAGE_VERSION}${IMAGE_REVD}
+	IMAGE_VERSION=${IMAGE_VERSION}.${IMAGE_REVD}
 fi
 VERSION=${MM_VERSION}.${IMAGE_VERSION}
 
