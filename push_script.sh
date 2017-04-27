@@ -5,15 +5,15 @@ TAG=rusk85/nginx-alpine-mrfs
 # block for creating proper version number
 # version pattern: major.minor.revision
 # exmaple: 1.5.99
-VERSION_FILE=$(pwd)/VERSION
+VERSION_FILE=$(pwd)/cfgs/VERSION
 VERSION=$(cat $VERSION_FILE)
-COMMIT_MSG="Added latest changes"
+COMMIT_MSG="$VERSION"
 if [ "$#" -eq 1 ]; then
-	COMMIT_MSG=$1
+	COMMIT_MSG="$VERSION: $1"
 fi
 
 printf "\nAdding, committing and pushing changes to origin...\n"
 
 git add .
-git commit -m "$VERSION: $COMMIT_MSG"
+git commit -m "$COMMIT_MSG"
 git push origin

@@ -1,11 +1,14 @@
+#!/bin/bash
 #build script for rusk85/nginx-alpine-mrfs
 
-#set -eou pipefail
+#set -eoxu pipefail
 
-TAG=rusk85/nginx-alpine-mrfs
+CFGS=$(pwd)/cfgs
+
+TAG=$(cat $CFGS/IMAGE)
 
 BUILD_TIME="$(date +%d/%m/%y-%H:%M:%S%z)"
-VERSION=$(cat VERSION)
+VERSION=$(cat $CFGS/VERSION)
 
 printf "\nRemoving old containers and images ...\n"
 
