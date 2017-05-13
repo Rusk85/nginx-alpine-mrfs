@@ -19,6 +19,6 @@ fi
 printf "\nAdding, committing and pushing changes to origin...\n"
 
 git add .
-git commit -m "$COMMIT_MSG"
+git commit -am "$COMMIT_MSG"
 git push origin
 
