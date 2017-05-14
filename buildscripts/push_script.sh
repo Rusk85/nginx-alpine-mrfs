@@ -5,7 +5,7 @@
 set -o errexit	# abort script at first error
 set -o pipefail	# return the exit status of the last command in the pipe
 set -o nounset	# treat unset variables and parameters as an error
-set -x		# Use during debugging
+#set -x		# Use during debugging
 
 VERSION_OPTS=("--major" "--minor" "--patch")
 VERSION_FILE=$(pwd)/../cfgs/VERSION
@@ -82,6 +82,10 @@ if [ "$VERSION_MODE" != "false" ] ; then
 	increment_version $VERSION_MODE
 	update_version_file
 	COMMIT_MSG="Version updated to $VERSION"
+fi
+
+if [[ "$COMMIT_MSG" != false && "$#" -eq 2 ]] ; then 
+	COMMIT_MSG="$2"
 fi
 
 
