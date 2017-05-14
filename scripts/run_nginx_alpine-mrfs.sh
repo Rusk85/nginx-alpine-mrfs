@@ -2,7 +2,7 @@
 
 set -eou pipefil
 
-CFGS=$(pwd)/cfgs
+CFGS=$(pwd)/../cfgs
 IMAGE_NAME=$(cat $CFGS/IMAGE)
 CONTAINER_NAME=$(cat $CFGS/CONTAINER)
 
