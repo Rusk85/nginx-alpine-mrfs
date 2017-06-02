@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eou pipefil
+set -eou pipefail
 
 CFGS=$(pwd)/../cfgs
 IMAGE_NAME=$(cat $CFGS/IMAGE)
@@ -11,7 +11,7 @@ printf "Stopping and deleting previous container...\n"
 docker rm -f $CONTAINER_NAME
 
 
-set -eou pipefil
+set -eou pipefail
 printf "\nRunning new container off of latest build...\n"
 
 docker run -d --name $CONTAINER_NAME -p 80:8080 -ti $IMAGE_NAME
